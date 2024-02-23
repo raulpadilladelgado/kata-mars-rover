@@ -1,16 +1,16 @@
 package org.example
 
-private const val planetSize = 10
-
-class MarsRover(private val position: Position, private val direction: Direction) {
-    fun execute(command: Command): Pair<Position, Direction> {
+data class MarsRover(private val location: Location) {
+    fun execute(command: Command): MarsRover {
         return when (command) {
             Command.F -> {
-                Pair(position.moveForward(direction, planetSize), direction)
+                MarsRover(location.moveForward())
             }
-
-            else -> {
-                throw IllegalArgumentException("Command not supported")
+            Command.L -> {
+                MarsRover(location.turnLeft())
+            }
+            Command.R -> {
+                MarsRover(location.turnRight())
             }
         }
     }
