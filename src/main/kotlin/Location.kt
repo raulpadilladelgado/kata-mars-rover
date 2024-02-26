@@ -2,30 +2,26 @@ package org.example
 
 data class Location(
     private val position: Position,
-    private val direction: Direction,
-    private val positionBoundary: Int = 10
+    private val direction: Direction
 ) {
     fun moveForward(): Location {
         return Location(
-            position.moveForward(direction, positionBoundary),
-            direction,
-            positionBoundary
+            position.moveForward(direction),
+            direction
         )
     }
 
     fun turnLeft(): Location {
         return Location(
             position,
-            direction.turnLeft(),
-            positionBoundary
+            direction.turnLeft()
         )
     }
 
     fun turnRight(): Location {
         return Location(
             position,
-            direction.turnRight(),
-            positionBoundary
+            direction.turnRight()
         )
     }
 

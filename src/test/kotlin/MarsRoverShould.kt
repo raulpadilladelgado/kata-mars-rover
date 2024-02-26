@@ -12,12 +12,12 @@ class MarsRoverShould {
     @Test
     fun `update location based on a given command`() {
         val commands = listOf(F, L, F, R, F)
-        val marsRover = MarsRover(Location(Position(0, 0), Direction.N, 10))
+        val marsRover = MarsRover(Location(Position.of(0, 0, 10), Direction.N))
 
         val resultingMarsRover =
             commands.fold(marsRover) { resultingMarsRover, command -> resultingMarsRover.execute(command) }
 
-        val expectedMarsRover = MarsRover(Location(Position(9, 2), Direction.N, 10))
+        val expectedMarsRover = MarsRover(Location(Position.of(9, 2, 10), Direction.N))
         assertEquals(expectedMarsRover, resultingMarsRover)
     }
 }
