@@ -1,16 +1,16 @@
 package org.example
 
-data class MarsRover(private val location: Location) {
+data class MarsRover(private val navigator: Navigator) {
     fun execute(command: Command): MarsRover {
         return when (command) {
             Command.F -> {
-                MarsRover(location.moveForward())
+                MarsRover(navigator.moveForward())
             }
             Command.L -> {
-                MarsRover(location.turnLeft())
+                MarsRover(navigator.turnLeft())
             }
             Command.R -> {
-                MarsRover(location.turnRight())
+                MarsRover(navigator.turnRight())
             }
         }
     }
